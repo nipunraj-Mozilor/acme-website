@@ -3,23 +3,22 @@
   <head>
     <script>
       let cookies = document.cookie.split(";").reduce( (ac, cv, i) => Object.assign(ac, {[cv.split('=')[0]]: cv.split('=')[1]}), {});
-if (obj.hasOwnProperty('cookieyes-consent')){
-   const cookieYesConsent = obj["cookieyes-consent"];
-   if (cookieYesConsent) {
-   const cookiePairs = cookieYesConsent.split(',').map((pair) => pair.trim());
-   const cookieObj = {};
-   cookiePairs.forEach((pair) => {
-     const [key, value] = pair.split(':');
-     cookieObj[key] = value;
-   });
-    console.log('obj', cookieObj)
+      if (obj.hasOwnProperty('cookieyes-consent')){
+      const cookieYesConsent = obj["cookieyes-consent"];
+      if (cookieYesConsent) {
+       const cookiePairs = cookieYesConsent.split(',').map((pair) => pair.trim());
+       const cookieObj = {};
+       cookiePairs.forEach((pair) => {
+       const [key, value] = pair.split(':');
+       cookieObj[key] = value;
+      });
+      console.log('obj', cookieObj)
    if (cookieObj.action === ""){
        document.cookie = `cookieyes-consent=no; expires=${new Date(0).toUTCString()}; path=/;domain=.template-website-chi.vercel.app; SameSite=Strict;`
    }    
    }
   
 }
-
       // here starts code
       window.ckySettings = {};
 window.ckySettings.ruleSet = [
