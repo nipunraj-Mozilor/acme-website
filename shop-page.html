@@ -13,7 +13,7 @@
        cookieObj[key] = value;
       });
       console.log('obj', cookieObj)
-   if (cookieObj.action === ""){
+   if (cookieObj.action === "no"){
        document.cookie = `cookieyes-consent=no; expires=${new Date(0).toUTCString()}; path=/;domain=.template-website-chi.vercel.app; SameSite=Strict;`
    }    
    }
