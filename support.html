@@ -1,6 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <script>
+      let cookies = document.cookie
+        .split(";")
+        .reduce(
+          (ac, cv, i) =>
+            Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
+          {}
+        );
+      if (cookies.hasOwnProperty("cookieyes-consent")) {
+        const cookieYesConsent = cookies["cookieyes-consent"];
+        if (cookieYesConsent) {
+          const cookiePairs = cookieYesConsent
+            .split(",")
+            .map((pair) => pair.trim());
+          const cookieObj = {};
+          cookiePairs.forEach((pair) => {
+            const [key, value] = pair.split(":");
+            cookieObj[key] = value;
+          });
+          console.log("obj", cookieObj);
+          if (cookieObj.action === "no") {
+            document.cookie = `cookieyes-consent=no; expires=${new Date(
+              0
+            ).toUTCString()}; path=/;domain=.template-website-chi.vercel.app; SameSite=Strict;`;
+          }
+        }
+      }
+      // here starts code
+      window.ckySettings = {};
+      window.ckySettings.ruleSet = [
+        {
+          targetBanner: 7868,
+          condition: "all",
+        },
+      ];
+    </script>
+    <script
+      id="cookieyes"
+      type="text/javascript"
+      src="https://scriptstaging.cookieyes.com/client_data/4211fb0482480919f69a9996/script.js"
+    ></script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -174,11 +215,11 @@
     <!-- importing script tags -->
     <script>
       $(function () {
-        $('#nav-placeholder').load('./components/navbar.html')
-      })
+        $("#nav-placeholder").load("./components/navbar.html");
+      });
       $(function () {
-        $('#footer-placeholder').load('./components/footer.html')
-      })
+        $("#footer-placeholder").load("./components/footer.html");
+      });
     </script>
   </body>
 </html>
