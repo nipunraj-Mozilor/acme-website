@@ -30,7 +30,6 @@
       );
     </script> -->
     <script>
-      console.log("in the script");
       let cookies = document.cookie
         .split(";")
         .reduce(
@@ -39,6 +38,7 @@
           {}
         );
       if (cookies.hasOwnProperty("cookieyes-consent")) {
+        console.log("in the script");
         const cookieYesConsent = cookies["cookieyes-consent"];
         if (cookieYesConsent) {
           const cookiePairs = cookieYesConsent
