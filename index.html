@@ -4,15 +4,24 @@
     <!-- google optimize -->
     <!-- <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5WZRM33"></script> -->
     <!-- Start cookieyes banner -->
-    <!-- Start cookieyes banner -->
     <script
       id="cookieyes"
       type="text/javascript"
       src="https://cdn-cookieyes.com/client_data/f82b6a135dce0ffe3fbbc6a4/script.js"
     ></script>
-    <!-- End cookieyes banner -->
-    <!-- End cookieyes banner -->
 
+    <!-- End cookieyes banner -->
+    <!-- custom snippet -->
+    document.addEventListener("cookieyes_consent_update", function (eventData) {
+    const data = eventData.detail; if (data.accepted.includes("analytics")) {
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731933074639437"
+      crossorigin="anonymous"
+    ></script>
+    } });
+
+    <!--  -->
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -49,11 +58,6 @@
       crossorigin="anonymous"
     ></script>
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731933074639437"
-      crossorigin="anonymous"
-    ></script>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
