@@ -38,9 +38,9 @@
           {}
         );
       if (cookies.hasOwnProperty("cookieyes-consent")) {
-        console.log("in the script nipun");
         const cookieYesConsent = cookies["cookieyes-consent"];
         if (cookieYesConsent) {
+          console.log("inside the cookieyes consent cookie");
           const cookiePairs = cookieYesConsent
             .split(",")
             .map((pair) => pair.trim());
