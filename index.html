@@ -40,7 +40,6 @@
       if (cookies.hasOwnProperty("cookieyes-consent")) {
         const cookieYesConsent = cookies["cookieyes-consent"];
         if (cookieYesConsent) {
-          console.log("inside the cookieyes consent cookie");
           const cookiePairs = cookieYesConsent
             .split(",")
             .map((pair) => pair.trim());
@@ -50,6 +49,7 @@
             cookieObj[key] = value;
           });
           if (cookieObj.analytics === "yes") {
+            console.log("inside the cookieyes consent cookie");
             const adSense = document.createElement("script");
             adSense.src =
               "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731933074639437";
@@ -57,24 +57,24 @@
             adSense.async = true;
 
             document.head.appendChild(adSense);
-          }
-        } else {
-          console.log("in the events");
-          document.addEventListener(
-            "cookieyes_consent_update",
-            function (eventData) {
-              const data = eventData.detail;
-              if (data.accepted.includes("analytics")) {
-                const adSense = document.createElement("script");
-                adSense.src =
-                  "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731933074639437";
-                adSense.crossorigin = "anonymous";
-                adSense.async = true;
+          } else {
+            console.log("in the events");
+            document.addEventListener(
+              "cookieyes_consent_update",
+              function (eventData) {
+                const data = eventData.detail;
+                if (data.accepted.includes("analytics")) {
+                  const adSense = document.createElement("script");
+                  adSense.src =
+                    "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4731933074639437";
+                  adSense.crossorigin = "anonymous";
+                  adSense.async = true;
 
-                document.head.appendChild(adSense);
+                  document.head.appendChild(adSense);
+                }
               }
-            }
-          );
+            );
+          }
         }
       }
     </script>
