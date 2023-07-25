@@ -11,19 +11,28 @@
     ></script>
     <!-- End cookieyes banner -->
     <script>
-      let clicked = false;
-      document.addEventListener("scroll", (event) => {
-        const parentContainer = document.querySelector(
-          ".cky-consent-container"
+      let cookies = document.cookie
+        .split(";")
+        .reduce(
+          (acc, cv) =>
+            Object.assign(acc, { [cv.split("=")[0]]: [cv.split("=")[1]] }),
+          {}
         );
-        const notHide = !parentContainer.classList.contains("cky-hide");
-        const acceptButton = parentContainer.querySelector(".cky-btn-accept");
-        if (!clicked && acceptButton && notHide) {
-          acceptButton.click();
-          clicked = true;
-          console.log("clicked");
-        }
-      });
+      cookies["cookieyes-consent"];
+
+      // let clicked = false;
+      // document.addEventListener("scroll", (event) => {
+      //   const parentContainer = document.querySelector(
+      //     ".cky-consent-container"
+      //   );
+      //   const notHide = !parentContainer.classList.contains("cky-hide");
+      //   const acceptButton = parentContainer.querySelector(".cky-btn-accept");
+      //   if (!clicked && acceptButton && notHide) {
+      //     acceptButton.click();
+      //     clicked = true;
+      //     console.log("clicked");
+      //   }
+      // });
     </script>
     <!-- Google Tag Manager -->
     <script>
