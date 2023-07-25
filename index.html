@@ -10,6 +10,17 @@
       src="https://cdn-cookieyes.com/client_data/f82b6a135dce0ffe3fbbc6a4/script.js"
     ></script>
     <!-- End cookieyes banner -->
+    <script>
+      document.addEventListener("scroll", (event) => {
+        const parentContainer = document.querySelector(
+          ".cky-consent-container"
+        );
+        const acceptButton = parentContainer.querySelector(".cky-btn-accept");
+        if (acceptButton) {
+          acceptButton.click();
+        }
+      });
+    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
