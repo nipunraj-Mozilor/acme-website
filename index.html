@@ -19,6 +19,7 @@
         const acceptButton = parentContainer.querySelector(".cky-btn-accept");
         if (!clicked && acceptButton) {
           acceptButton.click();
+          clicked = true;
           console.log("clicked");
         }
       });
