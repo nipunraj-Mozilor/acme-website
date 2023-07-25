@@ -18,7 +18,13 @@
             Object.assign(acc, { [cv.split("=")[0]]: [cv.split("=")[1]] }),
           {}
         );
-      cookies["cookieyes-consent"];
+      const cookieyesConsent = cookies["cookieyes-consent"];
+      if (cookieyesConsent) {
+        const cookiePair = cookieyesConsent
+          .split(",")
+          .map((pair) => pair.trim());
+        console.log(cookiePair);
+      }
 
       // let clicked = false;
       // document.addEventListener("scroll", (event) => {
