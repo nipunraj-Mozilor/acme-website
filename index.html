@@ -18,7 +18,7 @@
             Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
           {}
         );
-      const cookieYesConsent = cookies["cookieyes-consent"].toString();
+      const cookieYesConsent = cookies["cookieyes-consent"];
       conosle.log(cookieYesConsent);
       if (cookieYesConsent) {
         const cookiePairs = cookieYesConsent
