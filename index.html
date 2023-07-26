@@ -28,7 +28,7 @@
           const [key, value] = pair.split(":");
           cookieObj[key] = value;
         });
-        if (window.scrollY > 100 && cookieObj.action === "") {
+        if (window.scrollY > 10 && cookieObj.action === "") {
           document.addEventListener("scroll", handleScroll);
         }
         function handleScroll() {
