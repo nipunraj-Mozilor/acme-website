@@ -29,7 +29,7 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
-          document.addEventListener("load", function () {
+          waitForElement(".cky-consent-container", () => {
             document.addEventListener("scroll", handleScroll);
           });
         }
@@ -45,6 +45,19 @@
               document.removeEventListener("scroll", handleScroll);
             }
           }
+        }
+        function waitForElement(selector, callback) {
+          const element = document.querySelector(selector);
+          if (element) {
+            const display = getDisplayStyle(element);
+            if (display !== "none" && display !== "") {
+              return callback(element);
+            }
+          }
+
+          setTimeout(() => {
+            waitForElement(selector, callback);
+          }, 200);
         }
       }
     </script>
