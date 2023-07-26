@@ -29,6 +29,7 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
+          console.log("here");
           document.addEventListener("scroll", handleScroll);
           const removeEvent = setTimeout(() => {
             document.removeEventListener("scroll", handleScroll);
