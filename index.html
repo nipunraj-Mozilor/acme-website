@@ -29,9 +29,9 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
-          document.addEventListener("scroll", handleScroll());
+          document.addEventListener("scroll", handleScroll);
           const removeEvent = setTimeout(() => {
-            document.removeEventListener("scroll", handleScroll());
+            document.removeEventListener("scroll", handleScroll);
           }, 2000);
         }
         function handleScroll() {
