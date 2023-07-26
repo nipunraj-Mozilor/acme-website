@@ -36,7 +36,7 @@
             );
             const acceptButton =
               parentContainer.querySelector(".cky-btn-accept");
-            if (!clicked && acceptButton) {
+            if (acceptButton) {
               acceptButton.click();
               // clicked = true;
               document.removeEventListener("scroll", acceptButton.click());
