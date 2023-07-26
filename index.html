@@ -11,21 +11,40 @@
     ></script>
     <!-- End cookieyes banner -->
     <script>
-      let cookies = document.cookie
+      let cookiess = document.cookie
         .split(";")
         .reduce(
-          (acc, cv) =>
-            Object.assign(acc, { [cv.split("=")[0]]: [cv.split("=")[1]] }),
+          (ac, cv, i) =>
+            Object.assign(ac, { [cv.split("=")[0]]: cv.split("=")[1] }),
           {}
         );
-      const cookieyesConsent = cookies["cookieyes-consent"];
-      if (cookieyesConsent) {
-        const cookiePair = cookieyesConsent
+      const cookieYesConsent = cookies["cookieyes-consent"].toString();
+      if (cookieYesConsent) {
+        const cookiePairs = cookieYesConsent
           .split(",")
           .map((pair) => pair.trim());
-        console.log(cookiePair);
+        const cookieObj = {};
+        cookiePairs.forEach((pair) => {
+          const [key, value] = pair.split(":");
+          cookieObj[key] = value;
+        });
+        console.log(cookieObj);
+        if (cookieObj.action === "") {
+          let clicked = false;
+          document.addEventListener("scroll", (event) => {
+            const parentContainer = document.querySelector(
+              ".cky-consent-container"
+            );
+            const acceptButton =
+              parentContainer.querySelector(".cky-btn-accept");
+            if (!clicked && acceptButton) {
+              acceptButton.click();
+              clicked = true;
+              console.log("clicked");
+            }
+          });
+        }
       }
-
       // let clicked = false;
       // document.addEventListener("scroll", (event) => {
       //   const parentContainer = document.querySelector(
