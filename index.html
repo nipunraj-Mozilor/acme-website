@@ -28,10 +28,10 @@
           const [key, value] = pair.split(":");
           cookieObj[key] = value;
         });
-        console.log(window.scrollY);
-        if (window.scrollY >= 100 && cookieObj.action === "") {
-          console.log("here");
-          document.addEventListener("scroll", handleScroll);
+        if (cookieObj.action === "") {
+          document.addEventListener("scroll", () => {
+            if (window.scrollY >= 100) handleScroll;
+          });
         }
         function handleScroll() {
           const parentContainer = document.querySelector(
