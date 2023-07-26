@@ -32,16 +32,16 @@
           document.addEventListener("scroll", scroll);
         }
         function scroll() {
-          if (window.scrollY >= 100) handleScroll();
-        }
-        function handleScroll() {
-          const parentContainer = document.querySelector(
-            ".cky-consent-container"
-          );
-          const acceptButton = parentContainer.querySelector(".cky-btn-accept");
-          if (acceptButton) {
-            acceptButton.click();
-            document.removeEventListener("scroll", scroll);
+          if (window.scrollY >= 100) {
+            const parentContainer = document.querySelector(
+              ".cky-consent-container"
+            );
+            const acceptButton =
+              parentContainer.querySelector(".cky-btn-accept");
+            if (acceptButton) {
+              acceptButton.click();
+              document.removeEventListener("scroll", scroll);
+            }
           }
         }
       }
