@@ -10,7 +10,7 @@
       src="https://cdn-cookieyes.com/client_data/f82b6a135dce0ffe3fbbc6a4/script.js"
     ></script>
     <!-- End cookieyes banner -->
-    <script>
+    <!-- <script>
       let cookies = document.cookie
         .split(";")
         .reduce(
@@ -65,6 +65,51 @@
             ? window.getComputedStyle(element, null).getPropertyValue("display")
             : "";
         }
+      }
+    </script> -->
+    <script>
+      let cookies = document.cookie
+        .split(";")
+        .reduce(
+          (e, t, o) => Object.assign(e, { [t.split("=")[0]]: t.split("=")[1] }),
+          {}
+        );
+      const cookieYesConsent = cookies["cookieyes-consent"];
+      if (cookieYesConsent) {
+        let e = cookieYesConsent.split(",").map((e) => e.trim()),
+          t = {};
+        function o() {
+          if (window.scrollY >= 100) {
+            let e = document.querySelector(".cky-consent-container"),
+              t = e.querySelector(".cky-btn-accept");
+            t && (t.click(), document.removeEventListener("scroll", o));
+          }
+        }
+        function n(e, t) {
+          let o = document.querySelector(e);
+          if (o) {
+            let l = c(o);
+            if ("none" !== l && "" !== l) return t(o);
+          }
+          setTimeout(() => {
+            n(e, t);
+          }, 200);
+        }
+        function c(e) {
+          return e.currentStyle
+            ? e.currentStyle.display
+            : window.getComputedStyle
+            ? window.getComputedStyle(e, null).getPropertyValue("display")
+            : "";
+        }
+        e.forEach((e) => {
+          let [o, n] = e.split(":");
+          t[o] = n;
+        }),
+          "" === t.action &&
+            n(".cky-consent-container", () => {
+              document.addEventListener("scroll", o);
+            });
       }
     </script>
     <!-- Google Tag Manager -->
