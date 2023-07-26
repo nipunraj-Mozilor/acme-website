@@ -30,7 +30,7 @@
         });
         if (cookieObj.action === "") {
           document.addEventListener("scroll", () => {
-            if (window.scrollY >= 100) handleScroll;
+            if (window.scrollY >= 100) handleScroll();
           });
         }
         function handleScroll() {
