@@ -29,10 +29,10 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
-          document.addEventListener("scroll", function onScroll() {
-            if (window.scrollY >= 100) handleScroll();
-            console.log("onscroll");
-          });
+          document.addEventListener("scroll", scroll);
+        }
+        function scroll() {
+          if (window.scrollY >= 100) handleScroll();
         }
         function handleScroll() {
           const parentContainer = document.querySelector(
@@ -42,7 +42,7 @@
           if (acceptButton) {
             console.log("accept");
             acceptButton.click();
-            document.removeEventListener("scroll", onScroll);
+            document.removeEventListener("scroll", scroll);
           }
         }
         console.log("outside");
