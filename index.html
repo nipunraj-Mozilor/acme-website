@@ -31,6 +31,7 @@
         if (cookieObj.action === "") {
           document.addEventListener("scroll", () => {
             if (window.scrollY >= 100) handleScroll();
+            console.log("onscroll");
           });
         }
         function handleScroll() {
@@ -38,12 +39,11 @@
             ".cky-consent-container"
           );
           const acceptButton = parentContainer.querySelector(".cky-btn-accept");
-          console.log(acceptButton);
           if (acceptButton) {
-            console.log("inside function");
+            console.log("accept");
             acceptButton.click();
+            document.removeEventListener("scroll", handleScroll);
           }
-          document.removeEventListener("scroll", handleScroll);
         }
       }
     </script>
