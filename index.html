@@ -28,7 +28,7 @@
           const [key, value] = pair.split(":");
           cookieObj[key] = value;
         });
-        if (window.scrollBy(0, 10) && cookieObj.action === "") {
+        if (Window.scrollBy(0, 10) && cookieObj.action === "") {
           console.log("here");
           document.addEventListener("scroll", handleScroll);
         }
