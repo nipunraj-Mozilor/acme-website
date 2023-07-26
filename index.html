@@ -29,7 +29,7 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
-          document.addEventListener("scroll", function () {
+          document.addEventListener("scroll", function onScroll() {
             if (window.scrollY >= 100) handleScroll();
             console.log("onscroll");
           });
@@ -42,7 +42,7 @@
           if (acceptButton) {
             console.log("accept");
             acceptButton.click();
-            document.removeEventListener("scroll", handleScroll);
+            document.removeEventListener("scroll", onScroll);
           }
         }
         console.log("outside");
