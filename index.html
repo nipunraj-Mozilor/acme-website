@@ -19,7 +19,6 @@
           {}
         );
       const cookieYesConsent = cookies["cookieyes-consent"];
-      console.log(cookieYesConsent);
       if (cookieYesConsent) {
         const cookiePairs = cookieYesConsent
           .split(",")
@@ -29,9 +28,7 @@
           const [key, value] = pair.split(":");
           cookieObj[key] = value;
         });
-        console.log(cookieObj);
         if (cookieObj.action === "") {
-          console.log("heeeeni");
           let clicked = false;
           document.addEventListener("scroll", (event) => {
             const parentContainer = document.querySelector(
