@@ -36,15 +36,15 @@
           }, 2000);
           console.log("clicked");
         }
-      }
-      function handleScroll() {
-        const parentContainer = document.querySelector(
-          ".cky-consent-container"
-        );
-        const acceptButton = parentContainer.querySelector(".cky-btn-accept");
-        if (acceptButton) {
-          console.log("inside function");
-          acceptButton.click();
+        function handleScroll() {
+          const parentContainer = document.querySelector(
+            ".cky-consent-container"
+          );
+          const acceptButton = parentContainer.querySelector(".cky-btn-accept");
+          if (acceptButton) {
+            console.log("inside function");
+            acceptButton.click();
+          }
         }
       }
     </script>
