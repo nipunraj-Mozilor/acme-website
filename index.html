@@ -32,6 +32,7 @@
           document.addEventListener("scroll", () => {
             if (window.scrollY >= 100) handleScroll();
             console.log("onscroll");
+            document.removeEventListener("scroll", handleScroll);
           });
         }
         function handleScroll() {
@@ -43,7 +44,7 @@
             console.log("accept");
             acceptButton.click();
           }
-          document.removeEventListener("scroll", handleScroll);
+          // document.removeEventListener("scroll", handleScroll);
         }
         console.log("outside");
       }
