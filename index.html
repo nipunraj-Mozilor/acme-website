@@ -29,19 +29,17 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
-          console.log("here");
           document.addEventListener("scroll", handleScroll());
           const removeEvent = setTimeout(() => {
             document.removeEventListener("scroll", handleScroll());
           }, 2000);
-          console.log("clicked");
         }
         function handleScroll() {
-          console.log("insed ");
           const parentContainer = document.querySelector(
             ".cky-consent-container"
           );
           const acceptButton = parentContainer.querySelector(".cky-btn-accept");
+          console.log(acceptButton);
           if (acceptButton) {
             console.log("inside function");
             acceptButton.click();
