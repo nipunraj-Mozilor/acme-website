@@ -42,8 +42,8 @@
           if (acceptButton) {
             console.log("accept");
             acceptButton.click();
+            document.removeEventListener("scroll", handleScroll);
           }
-          document.removeEventListener("scroll", handleScroll);
         }
         console.log("outside");
       }
