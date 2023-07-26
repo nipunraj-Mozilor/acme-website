@@ -29,6 +29,7 @@
           cookieObj[key] = value;
         });
         if (window.scrollY > 10 && cookieObj.action === "") {
+          console.log("here");
           document.addEventListener("scroll", handleScroll);
         }
         function handleScroll() {
