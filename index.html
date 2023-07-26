@@ -19,6 +19,7 @@
           {}
         );
       const cookieYesConsent = cookies["cookieyes-consent"].toString();
+      conosle.log(cookieYesConsent);
       if (cookieYesConsent) {
         const cookiePairs = cookieYesConsent
           .split(",")
