@@ -30,9 +30,6 @@
         });
         if (cookieObj.action === "") {
           document.addEventListener("scroll", handleScroll);
-          const removeEvent = setTimeout(() => {
-            document.removeEventListener("scroll", handleScroll);
-          }, 2000);
         }
         function handleScroll() {
           const parentContainer = document.querySelector(
@@ -44,6 +41,7 @@
             console.log("inside function");
             acceptButton.click();
           }
+          document.removeEventListener("scroll", handleScroll);
         }
       }
     </script>
