@@ -29,7 +29,7 @@
           cookieObj[key] = value;
         });
         if (cookieObj.action === "") {
-          document.addEventListener("DOMContentLoaded", function () {
+          document.addEventListener("load", function () {
             document.addEventListener("scroll", handleScroll);
           });
         }
