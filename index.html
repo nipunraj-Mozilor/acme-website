@@ -42,7 +42,9 @@
           if (acceptButton) {
             console.log("accept");
             acceptButton.click();
-            document.removeEventListener("scroll", handleScroll, true);
+            document.removeEventListener("scroll", () => {
+              handleScroll();
+            });
           }
         }
         console.log("outside");
