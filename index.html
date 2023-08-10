@@ -19,7 +19,9 @@
         if (element) {
           const display = getDisplayStyle(element);
           if (display !== "none" && display !== "") {
-            return callback(event);
+            window.addEventListener("scroll", function (event) {
+              event.preventDefault();
+            });
           }
         }
         setTimeout(() => {
@@ -27,19 +29,15 @@
         }, 200);
       }
 
-      function handleConsentBannerShown() {
-        window.addEventListener(
-          "scroll",
-          function (event) {
-            event.preventDefault();
-          },
-          { passive: false }
-        );
-      }
-      function preventScroll(event) {
-        event.preventDefault();
-      }
-
+      // function handleConsentBannerShown() {
+      //   window.addEventListener(
+      //     "scroll",
+      //     function (event) {
+      //       event.preventDefault();
+      //     },
+      //     { passive: false }
+      //   );
+      // }
       function removeOverlay(element) {
         return function () {
           if (!element || !element.parentNode) return;
