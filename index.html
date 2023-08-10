@@ -28,7 +28,9 @@
       }
 
       function handleConsentBannerShown(element) {
+        console.log("out");
         window.addEventListener("scroll", function () {
+          console.log("in");
           event.preventDefault();
         });
       }
