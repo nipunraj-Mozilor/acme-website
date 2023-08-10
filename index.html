@@ -28,7 +28,13 @@
       }
 
       function handleConsentBannerShown() {
-        window.addEventListener("scroll", preventScroll, { passive: false });
+        window.addEventListener(
+          "scroll",
+          function (event) {
+            event.preventDefault();
+          },
+          { passive: false }
+        );
       }
       function preventScroll(event) {
         event.preventDefault();
