@@ -19,7 +19,7 @@
         if (element) {
           const display = getDisplayStyle(element);
           if (display !== "none" && display !== "") {
-            return callback(element);
+            return callback(event);
           }
         }
         setTimeout(() => {
@@ -27,10 +27,8 @@
         }, 200);
       }
 
-      function handleConsentBannerShown(element) {
-        console.log("out");
-        window.addEventListener("scroll", function () {
-          console.log("in");
+      function handleConsentBannerShown() {
+        window.addEventListener("scroll", function (event) {
           event.preventDefault();
         });
       }
