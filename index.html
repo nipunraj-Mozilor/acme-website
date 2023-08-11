@@ -28,7 +28,6 @@
             return callback(element);
           }
         }
-
         setTimeout(() => {
           waitForElement(selector, callback);
         }, 200);
@@ -40,17 +39,15 @@
           "style",
           "position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:9999;"
         );
-
         element.parentNode.insertBefore(overlayElement, element.nextSibling);
         document.body.style.overflow = "hidden";
         for (let i = 0; i < buttons.length; i++) {
           const buttonElement = document.querySelector(buttons[i]);
           buttonElement &&
-            buttonElement.addEventListener(
-              "click",
-              removeOverlay(overlayElement)
-            );
-          document.body.style.overflow = "auto";
+            buttonElement.addEventListener("click", () => {
+              removeOverlay(overlayElement)();
+              document.body.style.overflow = "auto";
+            });
         }
       }
 
