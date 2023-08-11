@@ -35,20 +35,13 @@
       }
 
       function handleConsentBannerShown(element) {
-        // Create overlay element
         const overlayElement = document.createElement("div");
         overlayElement.setAttribute(
           "style",
           "position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:9999;"
         );
-
-        // Insert overlay element after the consent banner
         element.parentNode.insertBefore(overlayElement, element.nextSibling);
-
-        // Disable scroll by setting overflow:hidden on the body
         document.body.style.overflow = "hidden";
-
-        // Add event listeners to the consent buttons to remove overlay and re-enable scroll
         for (let i = 0; i < buttons.length; i++) {
           const buttonElement = document.querySelector(buttons[i]);
           buttonElement &&
@@ -62,6 +55,7 @@
       function removeOverlay(element) {
         return function () {
           if (!element || !element.parentNode) return;
+          overlayElement.parentNode.removeChild(overlayElement);
           element.parentNode.removeChild(element);
           waitForElement(".cky-consent-container", handleConsentBannerShown);
         };
