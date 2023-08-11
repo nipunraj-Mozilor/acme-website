@@ -15,41 +15,36 @@
         ".cky-btn-reject",
         ".cky-btn-preferences",
       ];
-
-      window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", handleConsentBannerShown);
-      });
-
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) {
-          const display = getDisplayStyle(element);
-          if (display !== "none" && display !== "") {
-            return callback(element);
-          }
+      function waitForElement(e, t) {
+        let n = document.querySelector(e);
+        if (n) {
+          let o = getDisplayStyle(n);
+          if ("none" !== o && "" !== o) return t(n);
         }
         setTimeout(() => {
-          waitForElement(selector, callback);
+          waitForElement(e, t);
         }, 200);
       }
-
-      function handleConsentBannerShown(element) {
+      function handleConsentBannerShown(e) {
         document.body.style.overflow = "hidden";
-        for (let i = 0; i < buttons.length; i++) {
-          const buttonElement = document.querySelector(buttons[i]);
-          buttonElement &&
-            buttonElement.addEventListener("click", () => {
+        for (let t = 0; t < buttons.length; t++) {
+          let n = document.querySelector(buttons[t]);
+          n &&
+            n.addEventListener("click", () => {
               document.body.style.overflow = "auto";
             });
         }
       }
-      function getDisplayStyle(element) {
-        return element.currentStyle
-          ? element.currentStyle["display"]
+      function getDisplayStyle(e) {
+        return e.currentStyle
+          ? e.currentStyle.display
           : window.getComputedStyle
-          ? window.getComputedStyle(element, null).getPropertyValue("display")
+          ? window.getComputedStyle(e, null).getPropertyValue("display")
           : "";
       }
+      window.addEventListener("load", function () {
+        waitForElement(".cky-consent-container", handleConsentBannerShown);
+      });
     </script>
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
