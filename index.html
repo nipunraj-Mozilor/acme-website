@@ -42,6 +42,7 @@
         );
 
         element.parentNode.insertBefore(overlayElement, element.nextSibling);
+        document.body.style.overflow = "hidden";
         for (let i = 0; i < buttons.length; i++) {
           const buttonElement = document.querySelector(buttons[i]);
           buttonElement &&
@@ -49,6 +50,7 @@
               "click",
               removeOverlay(overlayElement)
             );
+          document.body.style.overflow = "auto";
         }
       }
 
