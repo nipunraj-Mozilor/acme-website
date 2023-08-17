@@ -9,43 +9,6 @@
       type="text/javascript"
       src="https://cdn-cookieyes.com/client_data/ad4d776e17c30dcb89e1af0a/script.js"
     ></script>
-    <script>
-      const buttons = [
-        ".cky-btn-accept",
-        ".cky-btn-reject",
-        ".cky-btn-preferences",
-      ];
-      function waitForElement(e, t) {
-        let n = document.querySelector(e);
-        if (n) {
-          let o = getDisplayStyle(n);
-          if ("none" !== o && "" !== o) return t(n);
-        }
-        setTimeout(() => {
-          waitForElement(e, t);
-        }, 200);
-      }
-      function handleConsentBannerShown(e) {
-        document.body.style.overflow = "hidden";
-        for (let t = 0; t < buttons.length; t++) {
-          let n = document.querySelector(buttons[t]);
-          n &&
-            n.addEventListener("click", () => {
-              document.body.style.overflow = "auto";
-            });
-        }
-      }
-      function getDisplayStyle(e) {
-        return e.currentStyle
-          ? e.currentStyle.display
-          : window.getComputedStyle
-          ? window.getComputedStyle(e, null).getPropertyValue("display")
-          : "";
-      }
-      window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", handleConsentBannerShown);
-      });
-    </script>
     <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
     <script>
