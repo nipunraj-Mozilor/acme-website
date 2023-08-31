@@ -16,8 +16,6 @@
 
       function waitForElement(selector, callback) {
         const element = document.querySelector(selector);
-        console.log("elme in wait", element);
-        element ? callback : null;
         setTimeout(() => {
           waitForElement(selector, callback);
         }, 200);
