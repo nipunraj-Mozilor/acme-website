@@ -14,11 +14,15 @@
     <script>
       waitForElement(".cky-banner-btn-close", handleCloseBtn);
 
+      var checktimeout = 0;
       function waitForElement(selector, callback) {
         const element = document.querySelector(selector);
-        setTimeout(() => {
-          waitForElement(selector, callback);
-        }, 200);
+        checktimeout++;
+        if (checktimeout < 120) {
+          setTimeout(function () {
+            waitForElement(selector, callback);
+          }, 500);
+        }
       }
 
       function handleCloseBtn() {
