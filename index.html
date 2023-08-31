@@ -16,7 +16,6 @@
       window.addEventListener("load", function () {
         waitForElement(".cky-banner-btn-close", handleCloseBtn);
       });
-
       function waitForElement(selector, callback) {
         const element = document.querySelector(selector);
         if (element) return callback();
@@ -27,28 +26,23 @@
           }, 500);
         }
       }
-
       function handleCloseBtn() {
-        const closebtn = document.querySelector(".cky-banner-btn-close");
-        if (closebtn) {
-          // var imageTag = closebtn.querySelector("img");
-          // imageTag ? (imageTag.style.display = "none") : "";
-          // var newText = document.createTextNode("continuer sans accepter");
-          // closebtn.insertBefore(newText, imageTag.nextSibling);
-          var imageTag = closebtn.querySelector("img");
+        const closeBtn = document.querySelector(".cky-banner-btn-close");
+        if (closeBtn) {
+          const imageTag = closeBtn.querySelector("img");
           imageTag ? (imageTag.style.display = "none") : "";
-          const buttonElement = document.createElement("span");
-          var fontElement1 = document.createElement("font");
+          const spanElement = document.createElement("span");
+          const fontElement1 = document.createElement("font");
           fontElement1.style.verticalAlign = "inherit";
 
-          var fontElement2 = document.createElement("font");
+          const fontElement2 = document.createElement("font");
           fontElement2.style.verticalAlign = "inherit";
-          fontElement2.textContent = "Continue without accepting";
+          fontElement2.textContent = "continuer sans accepter";
 
           fontElement1.appendChild(fontElement2);
-          buttonElement.appendChild(fontElement1);
+          spanElement.appendChild(fontElement1);
 
-          closebtn.appendChild(buttonElement);
+          closeBtn.appendChild(buttonElement);
         }
       }
     </script>
