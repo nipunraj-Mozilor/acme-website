@@ -15,7 +15,6 @@
       waitForElement(".cky-banner-btn-close", handleCloseBtn);
 
       var checktimeout = 0;
-
       function waitForElement(selector, callback) {
         const element = document.querySelector(selector);
         if (element) return callback();
@@ -35,6 +34,7 @@
         const closebtn = document.querySelector(".cky-banner-btn-close");
         console.log("closebtn", closebtn);
         if (closebtn) {
+          console.log("closebtn");
           var imageTag = closebtn.querySelector("img");
           imageTag ? (imageTag.style.display = "none") : "";
           var newText = document.createTextNode("continuer sans accepter");
