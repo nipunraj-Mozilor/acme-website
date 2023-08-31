@@ -15,17 +15,20 @@
       waitForElement(".cky-banner-btn-close", handleCloseBtn);
 
       var checktimeout = 0;
+      console.log("inside handleCloseBtn");
       function waitForElement(selector, callback) {
         const element = document.querySelector(selector);
         checktimeout++;
         if (checktimeout < 120) {
           setTimeout(function () {
+            console.log("inside 120 checktimeout");
             waitForElement(selector, callback);
           }, 500);
         }
       }
 
       function handleCloseBtn() {
+        console.log("inside handleCloseBtn");
         const closebtn = document.querySelector(".cky-banner-btn-close");
         console.log("closebtn", closebtn);
         if (closebtn) {
