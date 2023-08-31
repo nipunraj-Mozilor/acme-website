@@ -35,6 +35,20 @@
           // imageTag ? (imageTag.style.display = "none") : "";
           // var newText = document.createTextNode("continuer sans accepter");
           // closebtn.insertBefore(newText, imageTag.nextSibling);
+          var imageTag = closebtn.querySelector("img");
+          imageTag ? (imageTag.style.display = "none") : "";
+          const buttonElement = document.createElement("span");
+          var fontElement1 = document.createElement("font");
+          fontElement1.style.verticalAlign = "inherit";
+
+          var fontElement2 = document.createElement("font");
+          fontElement2.style.verticalAlign = "inherit";
+          fontElement2.textContent = "Continue without accepting";
+
+          fontElement1.appendChild(fontElement2);
+          buttonElement.appendChild(fontElement1);
+
+          closebtn.appendChild(buttonElement);
         }
       }
     </script>
