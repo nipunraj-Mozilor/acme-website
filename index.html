@@ -10,6 +10,18 @@
       src="https://cdn-cookieyes.com/client_data/78fa004f496bbaf1c0e09658/script.js"
     ></script>
     <!-- End cookieyes banner -->
+    <!-- custom script -->
+    <script>
+      const closebtn = document.querySelector(".cky-banner-btn-close");
+      if (closebtn) {
+        var imageTag = closebtn.querySelector("img");
+        imageTag ? (imageTag.style.display = "none") : "";
+        var newText = document.createTextNode("continuer sans accepter");
+
+        closebtn.insertBefore(newText, imageTag.nextSibling);
+      }
+    </script>
+    <!--  -->
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
