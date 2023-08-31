@@ -21,6 +21,7 @@
         console.log("inside handleCloseBtn");
         checktimeout++;
         if (checktimeout < 120) {
+          console.log("inside checktimeout");
           setTimeout(function () {
             console.log("inside 120 checktimeout");
             waitForElement(selector, callback);
