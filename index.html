@@ -12,14 +12,27 @@
     <!-- End cookieyes banner -->
     <!-- custom script -->
     <script>
-      const closebtn = document.querySelector(".cky-banner-btn-close");
-      console.log("closebtn", closebtn);
-      if (closebtn) {
-        var imageTag = closebtn.querySelector("img");
-        imageTag ? (imageTag.style.display = "none") : "";
-        var newText = document.createTextNode("continuer sans accepter");
+      waitForElement(".cky-banner-btn-close", handleCloseBtn);
 
-        closebtn.insertBefore(newText, imageTag.nextSibling);
+      function waitForElement(selector, callback) {
+        const element = document.querySelector(selector);
+        console.log("elme in wait", element);
+        element ? callback : null;
+        setTimeout(() => {
+          waitForElement(selector, callback);
+        }, 200);
+      }
+
+      function handleCloseBtn() {
+        const closebtn = document.querySelector(".cky-banner-btn-close");
+        console.log("closebtn", closebtn);
+        if (closebtn) {
+          var imageTag = closebtn.querySelector("img");
+          imageTag ? (imageTag.style.display = "none") : "";
+          var newText = document.createTextNode("continuer sans accepter");
+
+          closebtn.insertBefore(newText, imageTag.nextSibling);
+        }
       }
     </script>
     <!--  -->
