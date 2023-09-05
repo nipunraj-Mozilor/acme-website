@@ -4,49 +4,14 @@
     <!-- google optimize -->
     <!-- <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5WZRM33"></script> -->
     <!-- Start cookieyes banner -->
+    <!-- Start cookieyes banner -->
     <script
       id="cookieyes"
       type="text/javascript"
-      src="https://cdn-cookieyes.com/client_data/78fa004f496bbaf1c0e09658/script.js"
+      src="https://scriptstaging.cookieyes.com/client_data/339617d820daaede9938bb8e/script.js"
     ></script>
     <!-- End cookieyes banner -->
-    <!-- custom script -->
-    <script>
-      var checktimeout = 0;
-      window.addEventListener("load", function () {
-        waitForElement(".cky-banner-btn-close", handleCloseBtn);
-      });
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) return callback();
-        checktimeout++;
-        if (checktimeout < 120) {
-          setTimeout(function () {
-            waitForElement(selector, callback);
-          }, 500);
-        }
-      }
-      function handleCloseBtn() {
-        const closeBtn = document.querySelector(".cky-banner-btn-close");
-        if (closeBtn) {
-          const imageTag = closeBtn.querySelector("img");
-          imageTag ? (imageTag.style.display = "none") : "";
-          const spanElement = document.createElement("span");
-          const fontElement1 = document.createElement("font");
-          fontElement1.style.verticalAlign = "inherit";
-
-          const fontElement2 = document.createElement("font");
-          fontElement2.style.verticalAlign = "inherit";
-          fontElement2.textContent = "continuer sans accepter";
-
-          fontElement1.appendChild(fontElement2);
-          spanElement.appendChild(fontElement1);
-
-          closeBtn.appendChild(spanElement);
-        }
-      }
-    </script>
-    <!--  -->
+    <!-- End cookieyes banner -->
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
