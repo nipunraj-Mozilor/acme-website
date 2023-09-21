@@ -29,14 +29,15 @@
           if (display !== "none" && display !== "") {
             return callback(element);
           }
+        } else {
+          setTimeout(() => {
+            waitForElement(selector, callback);
+          }, 200);
         }
-
-        setTimeout(() => {
-          waitForElement(selector, callback);
-        }, 200);
       }
 
       function handleConsentBannerShown(element) {
+        document.body.style.overflow = "hidden";
         const overlayElement = document.createElement("div");
         overlayElement.setAttribute(
           "style",
@@ -49,6 +50,7 @@
           buttonElement &&
             buttonElement.addEventListener(
               "click",
+              (document.body.style.overflow = "auto"),
               removeOverlay(overlayElement)
             );
         }
