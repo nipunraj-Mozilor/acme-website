@@ -37,7 +37,9 @@
       }
 
       function handleConsentBannerShown(element) {
+        console.log("first", document.body.style.overflow);
         document.body.style.overflow = "hidden";
+        console.log("second", document.body.style.overflow);
         const overlayElement = document.createElement("div");
         overlayElement.setAttribute(
           "style",
