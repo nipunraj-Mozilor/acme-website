@@ -3,73 +3,6 @@
   <head>
     <!-- google optimize -->
     <!-- <script src="https://www.googleoptimize.com/optimize.js?id=OPT-5WZRM33"></script> -->
-    <!-- Start cookieyes banner -->
-    <script
-      id="cookieyes"
-      type="text/javascript"
-      src="https://cdn-cookieyes.com/client_data/96d227b0cc393ca4cdc3827a/script.js"
-    ></script>
-    <!-- End cookieyes banner -->
-    <!-- custom script -->
-    <script>
-      const buttons = [
-        ".cky-btn-accept",
-        ".cky-btn-reject",
-        ".cky-btn-preferences",
-      ];
-
-      window.addEventListener("load", function () {
-        waitForElement(".cky-consent-container", handleConsentBannerShown);
-      });
-
-      function waitForElement(selector, callback) {
-        const element = document.querySelector(selector);
-        if (element) {
-          const display = getDisplayStyle(element);
-          if (display !== "none" && display !== "") {
-            return callback(element);
-          }
-        } else {
-          setTimeout(() => {
-            waitForElement(selector, callback);
-          }, 200);
-        }
-      }
-
-      function handleConsentBannerShown(element) {
-        document.body.style.overflow = "hidden";
-        overlayElement.setAttribute(
-          "style",
-          "position:fixed;top:0;left:0;width:100%;height:100%;background-color:rgba(0, 0, 0, 0.5);z-index:9999;overflow:"
-        );
-
-        element.parentNode.insertBefore(overlayElement, element.nextSibling);
-        for (let i = 0; i < buttons.length; i++) {
-          const buttonElement = document.querySelector(buttons[i]);
-          buttonElement &&
-            buttonElement.addEventListener("click", function () {
-              removeOverlay(overlayElement);
-            });
-        }
-      }
-
-      function removeOverlay(element) {
-        return function () {
-          if (!element || !element.parentNode) return;
-          document.body.style.overflow = "auto";
-          element.parentNode.removeChild(element);
-          waitForElement(".cky-consent-container", handleConsentBannerShown);
-        };
-      }
-
-      function getDisplayStyle(element) {
-        return element.currentStyle
-          ? element.currentStyle["display"]
-          : window.getComputedStyle
-          ? window.getComputedStyle(element, null).getPropertyValue("display")
-          : "";
-      }
-    </script>
     <!-- Google Tag Manager -->
     <script>
       (function (w, d, s, l, i) {
@@ -81,7 +14,7 @@
         j.async = true;
         j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
         f.parentNode.insertBefore(j, f);
-      })(window, document, "script", "dataLayer", "GTM-WVV5CQX");
+      })(window, document, "script", "dataLayer", "GTM-WWBB26M");
     </script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
@@ -109,14 +42,14 @@
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
-    <!-- <noscript
+    <noscript
       ><iframe
-        src="https://www.googletagmanager.com/ns.html?id=GTM-WVV5CQX"
+        src="https://www.googletagmanager.com/ns.html?id=GTM-WWBB26M"
         height="0"
         width="0"
         style="display: none; visibility: hidden"
       ></iframe
-    ></noscript> -->
+    ></noscript>
     <!-- End Google Tag Manager (noscript) -->
     <header>
       <div id="nav-placeholder"></div>
