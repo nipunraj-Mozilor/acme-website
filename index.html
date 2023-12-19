@@ -17,6 +17,44 @@
       })(window, document, "script", "dataLayer", "GTM-WWBB26M");
     </script>
     <!-- End Google Tag Manager -->
+    <script>
+      var checktimeout = 0;
+      window.addEventListener("load", function () {
+        waitForElement(".cky-notice", handleCustomeizeBtn);
+      });
+      function waitForElement(selector, callback) {
+        const element = document.querySelector(selector);
+        if (element) return callback();
+        checktimeout++;
+        if (checktimeout < 120) {
+          setTimeout(function () {
+            waitForElement(selector, callback);
+          }, 500);
+        }
+      }
+      function handleCustomeizeBtn() {
+        const ckyTitle = document.querySelector(".cky-btn-customize");
+        const description = document.querySelector(".cky-notice-des");
+        if (ckyTitle) {
+          ckyTitle.style.display = "none";
+          const anchorTag = document.createElement("a");
+          anchorTag.href = "#";
+          anchorTag.textContent = "reject me";
+          anchorTag.onclick = function () {
+            performBannerAction("reject");
+          };
+          description.appendChild(anchorTag);
+        }
+      }
+      function previewCustomize() {
+        document.addEventListener("click", function (e) {
+          const target = e.target.closest(".cky-btn.cky-btn-reject");
+          if (target) {
+            performBannerAction("reject");
+          }
+        });
+      }
+    </script>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
